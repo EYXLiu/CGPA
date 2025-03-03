@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h2 class="header">CGPA Calculater for UWaterloo</h2>
+    <table id="GradesTable" border="1" class="grades">
+        <tr class="gradeRow">
+            <th class="course">Course</th>
+            <th class="percent">Grade Percentage</th>
+            <th class="remove">Remove</th>
+        </tr>
+    </table>
+    <div class="calc">
+        <button class="row" onclick="addRow()">Add Row</button>
+        <button class="calculate" onclick="calculateCGPA()">Calculate CGPA</button>
+    </div>
+    <p id="result"></p>
+    <script>
+        function addRow() {
+            let table = document.getElementById("GradesTable");
+            let row = table.insertRow();
+            row.innerHTML = `
+                <td><input type="text", class="course" placeholder="Course name"></td>
+                <td><input type="text" class="grade" placeholder="Grade"></td>
+                <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
+            `
+        }
+
+        function removeRow(button) {
+            let row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        function calculateCGPA() {
+            let grades = document.querySelectorAll(".grade");
+            let data = [];
+            for (let i = 0; i < grades.length; i++) {
+                let grade = parseInt(grades[i].value);
+                if (!isNaN(grade)) {
+                    data.push(grade);
+                }
+            }
+            
+            fetch("/calculate", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = "Culmulative GPA: " + data.cgpa;
+            })
+            .catch(err => console.error("Error: " + err));
+        }
+    </script>
+</body>
+</html>
