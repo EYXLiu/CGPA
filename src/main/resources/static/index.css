@@ -52,9 +52,9 @@ body {
 
 .calc {
     display: flex;
-    gap: 10px; /* Space between buttons */
-    justify-content: center; /* Center the buttons horizontally */
-    margin-top: 20px; /* Add some margin at the top */
+    gap: 10px;
+    justify-content: center; 
+    margin-top: 20px; 
 }
 
 .calc button {
