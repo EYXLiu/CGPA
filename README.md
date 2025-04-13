@@ -21,4 +21,4 @@ The API endpoint is at `http://localhost:8080/cgpa/calculate`.
 # How to run 
 Requires Java 23.0.2 <br/>
 Run the command `mvn clean install` to install all dependancies <br/>
-Run the command `mvn spring-boot:run` to deploy to a localhost website <br/>
+Run the command `mvn spring-boot:run` or `./mvnw spring-boot:run` to deploy to a localhost website <br/>
