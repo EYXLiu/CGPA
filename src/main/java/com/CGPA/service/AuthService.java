@@ -18,6 +18,9 @@ public class AuthService {
     }
 
     public void register(String name, String email, String rawPassword) {
+        if (userRepository.existsByEmail(email)) {
+            throw new IllegalArgumentException("A user with this email already exists.");
+        }
         String hashed = passwordEncoder.encode(rawPassword);
         User user = new User(name, email, hashed);
         userRepository.save(user);

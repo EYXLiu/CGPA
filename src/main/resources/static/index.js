@@ -77,8 +77,6 @@ async function put() {
     for (let i = 0; i < names.length; i++) {
         let name = names[i].value.trim();
         let grade = parseFloat(grades[i].value);
-        console.log(name);
-        console.log(grade);
         if (name != "" && !isNaN(grade)) {
             data.push({
                 name: name,
@@ -93,7 +91,6 @@ async function put() {
         body: JSON.stringify(data),
         credentials: "same-origin",
     })
-    .then(res => console.log("Saved"))
     .catch(err => console.error("Fetch error: " + err));
 }
 
@@ -109,8 +106,6 @@ async function logout() {
     for (let i = 0; i < names.length; i++) {
         let name = names[i].value.trim();
         let grade = parseFloat(grades[i].value);
-        console.log(name);
-        console.log(grade);
         if (name != "" && !isNaN(grade)) {
             data.push({
                 name: name,
@@ -137,7 +132,6 @@ function closeModal() {
 }
 
 function login() {
-    console.log("Submitting");
     event.preventDefault();
     let email = document.querySelector("#loginEmail").value;
     let password = document.querySelector("#loginPassword").value;
@@ -148,7 +142,6 @@ function login() {
     })
     .then(response => {
         if (response.ok) {
-            console.log("Login successful");
             closeModal();
             location.reload();
         } else {
@@ -169,7 +162,27 @@ function closeRegister() {
 }
 
 function register() {
-
+    event.preventDefault();
+    let name = document.querySelector("#registerName").value;
+    let email = document.querySelector("#registerEmail").value;
+    let password = document.querySelector("#registerPassword").value;
+    fetch("/api/auth/register", {
+        method: "POST", 
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ "name": name, "email": email, "password": password }),
+    })
+    .then(response => {
+        if (response.ok) {
+            closeRegister();
+            location.reload();
+        } else {
+            document.getElementById("registerError").innerHTML = `User already exists`;
+            return response.json().then(data => {
+                console.error("Login failed:", data.error);
+            });
+        }
+    })
+    .catch(err => console.error("Error: " + err));
 }
 
 document.addEventListener("keydown", function(event) {
@@ -222,12 +235,13 @@ window.onload = async function() {
                     <h2>Login</h2>
                     <form>
                         <label for="name">Name:</label>
-                        <input class="signInput" type="text" id="name" name="name" placeholder="name" autocomplete="name" required><br><br>
+                        <input class="signInput" type="text" id="registerName" name="name" placeholder="name" autocomplete="name" required><br><br>
                         <label for="email">Username:</label>
-                        <input class="signInput" type="text" id="email" name="email" placeholder="email" autocomplete="email" required><br><br>
+                        <input class="signInput" type="text" id="registerEmail" name="email" placeholder="email" autocomplete="email" required><br><br>
                         <label for="password">Password:</label>
-                        <input class="signInput" type="password" id="password" name="password" placeholder="password" autocomplete="current-password" required><br><br>
+                        <input class="signInput" type="password" id="registerPassword" name="password" placeholder="password" autocomplete="current-password" required><br><br>
                         <button type="submit" onclick="register()">Submit</button>
+                        <div class="registerError" id="registerError"></div>
                     </form>
                 </div>
             </div>

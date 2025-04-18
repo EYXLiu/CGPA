@@ -188,3 +188,7 @@ body {
 .logout-btn:hover {
     background-color: #a04545;
 }
+
+.registerError {
+    padding: 10px;
+}
