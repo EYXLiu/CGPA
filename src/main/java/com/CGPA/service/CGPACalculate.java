@@ -1,4 +1,4 @@
-package com.CGPA.services;
+package com.CGPA.service;
 
 import com.CGPA.dto.GradeRequest;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import java.util.List;
 
 @Service
 public class CGPACalculate {
-    private double percentToGPA(int percentage) {
+    private double percentToGPA(double percentage) {
         if (percentage >= 90) return 4.00;
         else if (percentage >= 85) return 3.90;
         else if (percentage >= 90) return 3.70;

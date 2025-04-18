@@ -2,7 +2,7 @@ package com.CGPA.controller;
 
 import com.CGPA.dto.GradeRequest;
 import com.CGPA.dto.CGPAResponse;
-import com.CGPA.services.CGPACalculate;
+import com.CGPA.service.CGPACalculate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

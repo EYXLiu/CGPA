@@ -19,43 +19,9 @@
         <button class="calculate" onclick="calculateCGPA()">Calculate CGPA</button>
     </div>
     <p id="result"></p>
-    <script>
-        function addRow() {
-            let table = document.getElementById("GradesTable");
-            let row = table.insertRow();
-            row.innerHTML = `
-                <td><input type="text", class="course" placeholder="Course name"></td>
-                <td><input type="text" class="grade" placeholder="Grade"></td>
-                <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
-            `
-        }
 
-        function removeRow(button) {
-            let row = button.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-        }
+    <div id="authButton"></div>
 
-        function calculateCGPA() {
-            let grades = document.querySelectorAll(".grade");
-            let data = [];
-            for (let i = 0; i < grades.length; i++) {
-                let grade = parseInt(grades[i].value);
-                if (!isNaN(grade)) {
-                    data.push(grade);
-                }
-            }
-            
-            fetch("/calculate", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("result").innerText = "Culmulative GPA: " + data.cgpa;
-            })
-            .catch(err => console.error("Error: " + err));
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>

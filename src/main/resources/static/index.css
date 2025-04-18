@@ -8,17 +8,22 @@
     margin: 20px auto;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fafafa;
+    background-color: #ededed;
 }
 
 .grades tr:nth-child(odd) {
-    background-color: #dfdfdf;
+    background-color: #dadada;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    padding: 6px;
 }
 
 .grades td {
     padding: 12px 15px;
-    text-align: left;
-    font-size: 14px;
+    text-align: left
 }
 
 .course, .percent, .remove {
@@ -76,4 +81,110 @@ body {
 
 .calc button:hover {
     opacity: 0.8; 
+}
+
+.loginModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.loginModal-content {
+    background-color: white;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    left: 0;
+    bottom: 0;
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+
+.registerModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.registerModal-content {
+    background-color: white;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    top: 0;
+    bottom: 0;
+}
+
+.register-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 110px;
+    padding: 10px 20px;
+    background-color: #4c7aaf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.register-btn:hover {
+    background-color: #4562a0;
+}
+
+.signInput {
+    padding: 3px;
+    padding-left: 8px;
+    margin: 3px;
+    border: 1px solid black;
+}
+
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #a04545;
 }

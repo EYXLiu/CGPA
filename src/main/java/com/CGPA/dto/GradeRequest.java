@@ -1,17 +1,17 @@
 package com.CGPA.dto;
 
 public class GradeRequest {
-    private int grade;
+    private double grade;
 
     public GradeRequest(int g){
         this.grade = g;
     }
 
-    public int getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int g) {
+    public void setGrade(double g) {
         this.grade = g;
     }
 }
