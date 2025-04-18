@@ -3,7 +3,8 @@ Tech Stack: Java, Spring Framework, Spring Boot, Supabase, JWT
 
 # About
 * Since Waterloo conversion to 4.00 GPA Scale is somewhat confusing, as described below, this web app is designed to easily convert from Waterloo % to a corresponding US 4.00 GPA Equivilent
-* Wrote backend API endpoints entirely in Sprint Boot and Java, for both Authentication, Database access, and Calculation purposes
+* Created full-stack web app with JS/HTML/CSS frontend and Spring Boot and Java backend
+* Wrote backend API endpoints for both Authentication, Database access, and Calculation purposes
 * Utilized Spring Security for authentication and endpoint protection 
 * Set up and deployed JWT tokens stored in HTTP cookies for Stateless Spring Boot authentication, allowing data to be saved as well as transfered through secure login/logout
 * Integrated Supabase for cloud database storage, allowing users to keep previously typed Grades for future reference 
