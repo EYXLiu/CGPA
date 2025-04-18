@@ -28,5 +28,6 @@ Tech Stack: Java, Spring Framework, Spring Boot, Supabase, JWT
 
 # How to run 
 Requires Java 23.0.2 <br/>
+Set up Supabase Database following `sample.applications.properties` format in static, as well as setting a secret key <br/>
 Run the command `mvn clean install` or `./mvnw spring-boot:run` to install all dependancies <br/>
 Run the command `mvn spring-boot:run` or `./mvnw spring-boot:run` to deploy to a localhost website <br/>
