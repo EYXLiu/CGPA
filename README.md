@@ -2,11 +2,15 @@
 Tech Stack: Java, Spring Framework, Spring Boot, Supabase, JWT
 
 # About
-This Spring Boot application is designed to calculate the Cumulative Grade Point Average (CGPA) for students at the University of Waterloo. Since Waterloo has a percentage grading system, different from US schools, we have a conversion from percentages to GPA.
-This web app does just that. It allows you to enter an optional course name, the grade in percentage, and calculaates the CGPA based off of that and the following table. To calculate, all grades are converted into GPA and then averaged. 
-
+* Since Waterloo conversion to 4.00 GPA Scale is somewhat confusing, as described below, this web app is designed to easily convert from Waterloo % to a corresponding US 4.00 GPA Equivilent
+* Wrote backend API endpoints entirely in Sprint Boot and Java, for both Authentication, Database access, and Calculation purposes
+* Utilized Spring Security for authentication and endpoint protection 
+* Set up and deployed JWT tokens stored in HTTP cookies for Stateless Spring Boot authentication, allowing data to be saved as well as transfered through secure login/logout
+* Integrated Supabase for cloud database storage, allowing users to keep previously typed Grades for future reference 
+* Followed Spring Boot best practices for clean, efficient, and secure code 
 
 # Grade Conversion
+* To convert, each grade is converted to the corresponding GPA value, then the total is averaged up to the GPA value. This method favours consistency over high marks, being very punishing to getting any grad below an 80%. 
 | Lower bound | Upper Bound | GPA conversion |
 |:------------|:------------|:---------------|
 | 90%   | 100%  | 4.00 |
