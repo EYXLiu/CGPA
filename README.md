@@ -11,6 +11,7 @@ Tech Stack: Java, Spring Framework, Spring Boot, Supabase, JWT
 
 # Grade Conversion
 * To convert, each grade is converted to the corresponding GPA value, then the total is averaged up to the GPA value. This method favours consistency over high marks, being very punishing to getting any grad below an 80%. <br/>
+
 | Lower bound | Upper Bound | GPA conversion |
 |:------------|:------------|:---------------|
 | 90%   | 100%  | 4.00 |
