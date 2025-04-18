@@ -48,8 +48,17 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Map<String, String> request) {
+    public ResponseEntity<?> register(@RequestBody Map<String, String> request, HttpServletResponse response) {
         authService.register(request.get("name"), request.get("email"), request.get("password"));
+        String jwt = jwtUtil.generate(request.get("email"));
+        Cookie cookie = new Cookie("jwt", jwt);
+        cookie.setHttpOnly(true);
+        //cookie.setSecure(true);
+        cookie.setPath("/");
+        cookie.setMaxAge(24*60*60);
+
+        response.addCookie(cookie);
+        
         return ResponseEntity.ok("User registered");
     }
 
